@@ -5,4 +5,4 @@ const auth = require('../auth/auth');
 
 router.post('/reminder/email/:customer_id', auth, auth,emailController.sendMail);
 
-module.exports = router
+module.exports = router;

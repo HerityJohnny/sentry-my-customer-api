@@ -18,6 +18,7 @@ const mongoose = require("mongoose");
 const store = require("./routes/stores.js");
 const register = require("./routes/register_route");
 const login = require("./routes/login_route");
+const reset_password = require('./routes/reset-password');
 // const emailAPI = require("./routes/sendMail");
 // const complainRouter = require("./routes/complaint");
 const docs = require("./routes/docs");
@@ -72,6 +73,7 @@ app.use(store);
 app.use(user);
 app.use(docs);
 app.use("/register", register);
+app.use(reset_password);
 
 // CONFIGURE FACEBOOK SIGNIN
 app.use(passport.initialize());
