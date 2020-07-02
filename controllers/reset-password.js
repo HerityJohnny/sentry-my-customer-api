@@ -7,7 +7,7 @@ resetpassword(req,res,next) {
     bcrypt.genSalt(10,(err,salt) => {
         bcrypt.hash(newPassword,salt, (err,hash) => {
             newPassword = hash;
-            User.updateOne({email : email},{ password : newPassword }, (err, user) => {
+            User.updateOne({email : email},{ $set: { password : newPassword } }, (err, user) => {
                  if(err) {
                     res.status(404).json({
                         success : false,
