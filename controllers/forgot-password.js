@@ -7,7 +7,7 @@ module.exports = {
         /**
          * Search if user exist 
          */
-        User.findOne({email : email})
+        User.findOne({_id : req.params.id})
         .exec()
         .then(result => {
             if(!result) {
@@ -32,13 +32,7 @@ module.exports = {
                             return res.status(200).json({
                                 status : true,
                                 message : "Password updated successfully",
-                                data : {
-                                    user : {
-                                        id : docs._id,
-                                        email : docs.email,
-                                        phone_number : docs.phone_number
-                                    }
-                                }
+                                data : {user}
                             })
                         })
                         .catch(err => {
