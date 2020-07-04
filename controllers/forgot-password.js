@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
+
 module.exports = {
     forgotPassword(req,res) {
         let { email, newpassword } = req.body;
